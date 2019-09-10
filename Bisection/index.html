@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>Bissecção de Funções</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    Função: <input type="text" id="equacao" size="100" /><br><br>
+    Valor de a: <input type="number" id="a" /><br><br>
+    Valor de b: <input type="number" id="b" /><br><br>
+    Valor mínimo de erro: <input type="number" id="e" /><br><br>    
+    <button onclick="iniciarBisseccao()">Calcular</button><br><br>
+    Resultado: <br><br>
+    <div id="resultado">:)</div>
+    <script>
+
+        function iniciarBisseccao() {
+            aplicarAbordagem($('#equacao').val(), $('#a').val(), $('#b').val(), $('#e').val());
+        }
+
+        function aplicarAbordagem(equacao, a, b, e) {
+            
+        }
+
+        function desenharTabela() {
+            //$('#resultado').html("aaaaaa");
+        }
+
+        function adicionarLinha(a, b, xm, fxm) {
+
+        }
+
+    </script>
+</body>
+
+</html>
