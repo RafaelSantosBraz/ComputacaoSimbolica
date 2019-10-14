@@ -1,10 +1,15 @@
 "use strict";
 
+function limparResultado() {
+    $('#resultado').html("");
+}
+
 function iniciarMetodo() {
-    let A = [[10, 2, 1], [1, 5, 1], [2, 3, 10]];
-    let B = [7, -8, 6];    
-    let e = 0.05;
+    let A = eval($('#A').val());
+    let B = eval($('#B').val());
+    let e = eval($('#e').val());
     let funcs = inferirFuncoes(A, B);
+    console.log(funcs);
     etapaInicial(A, B, funcs, e);
 }
 
@@ -21,8 +26,14 @@ function geraSubtracao(element, index) {
     let res = "";
     element.forEach((i, j) => {
         if (index == j);
-        else
-            res += ((-1) * i).toString() + "*X[" + j + "] ";
+        else {
+            const mult = ((-1) * i);
+            if (mult > 0) {
+                res += "+" + mult.toString() + "*X[" + j + "] ";
+            } else {
+                res += mult.toString() + "*X[" + j + "] ";
+            }
+        }
     });
     return res;
 }
@@ -39,6 +50,7 @@ function etapaInicial(A, B, funcs, e) {
 function aplicarAbordagem(X, funcs, e) {
     let Xk = new Array(X.length);
     for (let i = 0; i < funcs.length; i++) {
+        console.log(funcs[i]);
         Xk[i] = eval(funcs[i]);
     }
     const XkX = vetMenosVet(Xk, X);
