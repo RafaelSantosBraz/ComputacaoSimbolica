@@ -5,14 +5,53 @@ function limparResultado() {
 }
 
 function iniciarMetodo() {
-    let A = eval($('#A').val());
-    let B = eval($('#B').val());
-    let e = eval($('#e').val());
-    let funcs = inferirFuncoes(A, B);
-    console.log(funcs);
+    const A = eval($('#A').val());
+    const B = eval($('#B').val());
+    const e = eval($('#e').val());
+    const funcs = inferirFuncoes(A, B);
+    //console.log(funcs);
+    //console.log(validarMatrizLinha(A));
+    //console.log(validarMatrizColuna(A));
+    if (!validarMatrizLinha(A)) {
+        if (!validarMatrizColuna(A)) {
+            $('#resultado').html("Matriz A não é estritamente diagonal dominante!");
+            return;
+        }
+    }
     etapaInicial(A, B, funcs, e);
 }
 
+function validarMatrizLinha(A) {
+    for (let i = 0; i < A.length; i++) {
+        let soma = 0;
+        A[i].forEach((element, j) => {
+            if (i != j) {
+                soma += Math.abs(element);
+            }
+        });
+        //console.log(Math.abs(linha[i]) + " " + soma);
+        if (!(Math.abs(A[i][i]) > soma)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function validarMatrizColuna(A) {
+    for (let c = 0; c < A.length; c++) {
+        let soma = 0;
+        A.forEach((linha, i) => {
+            if (i != c) {
+                soma += Math.abs(linha[c]);
+            }
+        });
+        //console.log(Math.abs(A[c][c]) + " " + soma);
+        if (!(Math.abs(A[c][c]) > soma)) {
+            return false;
+        }
+    }
+    return true;
+}
 
 function inferirFuncoes(A, B) {
     let funcs = new Array(A.length);
@@ -25,13 +64,12 @@ function inferirFuncoes(A, B) {
 function geraSubtracao(element, index) {
     let res = "";
     element.forEach((i, j) => {
-        if (index == j);
-        else {
+        if (index != j) {
             const mult = ((-1) * i);
             if (mult > 0) {
-                res += "+" + mult.toString() + "*X[" + j + "] ";
+                res += "+" + mult.toString() + "*X[" + j + "]";
             } else {
-                res += mult.toString() + "*X[" + j + "] ";
+                res += mult.toString() + "*X[" + j + "]";
             }
         }
     });
@@ -43,6 +81,7 @@ function etapaInicial(A, B, funcs, e) {
     for (let i = 0; i < funcs.length; i++) {
         X[i] = B[i] / A[i][i];
     }
+    // console.log(X);
     const result = aplicarAbordagem(X, funcs, e);
     $('#resultado').html(result.toString().split(",").join(", "));
 }
@@ -50,11 +89,10 @@ function etapaInicial(A, B, funcs, e) {
 function aplicarAbordagem(X, funcs, e) {
     let Xk = new Array(X.length);
     for (let i = 0; i < funcs.length; i++) {
-        console.log(funcs[i]);
+        // console.log(funcs[i]);
         Xk[i] = eval(funcs[i]);
     }
-    const XkX = vetMenosVet(Xk, X);
-    const ERx = maiorAbs(XkX) / maiorAbs(X);
+    const ERx = maiorAbs(vetMenosVet(Xk, X)) / maiorAbs(Xk);
     if (ERx <= e) {
         return Xk;
     }
