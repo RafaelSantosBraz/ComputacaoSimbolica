@@ -83,7 +83,7 @@ function etapaInicial(A, B, funcs, e) {
     }
     // console.log(X);
     const result = aplicarAbordagem(X, funcs, e);
-    $('#resultado').html(result.toString().split(",").join(", "));
+    $('#resultado').html('[' + result.toString().split(",").join(", ") + ']');
 }
 
 function aplicarAbordagem(X, funcs, e) {
