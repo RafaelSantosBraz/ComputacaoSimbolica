@@ -9,9 +9,6 @@ function iniciarMetodo() {
     const B = eval($('#B').val());
     const e = eval($('#e').val());
     const funcs = inferirFuncoes(A, B);
-    //console.log(funcs);
-    //console.log(validarMatrizLinha(A));
-    //console.log(validarMatrizColuna(A));
     if (!validarMatrizLinha(A)) {
         if (!validarMatrizColuna(A)) {
             $('#resultado').html("Matriz A não é estritamente diagonal dominante!");
@@ -81,31 +78,20 @@ function etapaInicial(A, B, funcs, e) {
     for (let i = 0; i < funcs.length; i++) {
         X[i] = B[i] / A[i][i];
     }
-    // console.log(X);
     const result = aplicarAbordagem(X, funcs, e);
     $('#resultado').html('[' + result.toString().split(",").join(", ") + ']');
 }
 
 function aplicarAbordagem(X, funcs, e) {
-    let Xk = new Array(X.length);
+    const Xtemp = X.map((i) => i);
     for (let i = 0; i < funcs.length; i++) {
-        // console.log(funcs[i]);
-        if (i != 0){
-            let Xtemp = X;
-            for (let c = 0; c < i; c++){
-                X[c] = Xk[c];
-            }
-            Xk[i] = eval(funcs[i]);
-            X = Xtemp;
-        } else{
-            Xk[i] = eval(funcs[i]);
-        }        
+        X[i] = eval(funcs[i]);
     }
-    const ERx = maiorAbs(vetMenosVet(Xk, X)) / maiorAbs(Xk);
+    const ERx = maiorAbs(vetMenosVet(X, Xtemp)) / maiorAbs(X);
     if (ERx <= e) {
-        return Xk;
+        return X;
     }
-    return aplicarAbordagem(Xk, funcs, e);
+    return aplicarAbordagem(X, funcs, e);
 }
 
 function vetMenosVet(X, Y) {
@@ -126,4 +112,3 @@ function maiorAbs(vec) {
     });
     return aux;
 }
-
