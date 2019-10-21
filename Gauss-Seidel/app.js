@@ -54,6 +54,7 @@ function inferirFuncoes(A, B) {
     let funcs = new Array(A.length);
     A.forEach((element, index) => {
         funcs[index] = "1/" + element[index] + "*(" + B[index] + geraSubtracao(element, index) + ")";
+        // funcs[index] = "(" + B[index] + geraSubtracao(element, index) + ")/" + element[index];
     });
     return funcs;
 }

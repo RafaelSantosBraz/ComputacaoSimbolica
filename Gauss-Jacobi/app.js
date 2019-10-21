@@ -9,9 +9,6 @@ function iniciarMetodo() {
     const B = eval($('#B').val());
     const e = eval($('#e').val());
     const funcs = inferirFuncoes(A, B);
-    //console.log(funcs);
-    //console.log(validarMatrizLinha(A));
-    //console.log(validarMatrizColuna(A));
     if (!validarMatrizLinha(A)) {
         if (!validarMatrizColuna(A)) {
             $('#resultado').html("Matriz A não é estritamente diagonal dominante!");
@@ -57,6 +54,7 @@ function inferirFuncoes(A, B) {
     let funcs = new Array(A.length);
     A.forEach((element, index) => {
         funcs[index] = "1/" + element[index] + "*(" + B[index] + geraSubtracao(element, index) + ")";
+        // funcs[index] = "(" + B[index] + geraSubtracao(element, index) + ")/" + element[index];
     });
     return funcs;
 }
