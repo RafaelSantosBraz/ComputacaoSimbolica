@@ -41,35 +41,35 @@ for (let c = 0; c < s.length - 2; c++) {
 }
 
 // aplicação dos valores dos pontos da matriz P na expressão s
-s = s.replace(/[f]/g, "(" + Math.pow(P[0][0], 2).toFixed(3) + ")");
-s = s.replace(/[g]/g, "(" + (P[0][0] * P[0][1]).toFixed(3) + ")");
-s = s.replace(/[h]/g, "(" + Math.pow(P[0][1], 2).toFixed(3) + ")");
-s = s.replace(/[i]/g, "(" + P[0][0].toFixed(3) + ")");
-s = s.replace(/[j]/g, "(" + P[0][1].toFixed(3) + ")");
+s = s.replace(/[f]/g, "(" + Math.pow(P[0][0], 2) + ")");
+s = s.replace(/[g]/g, "(" + (P[0][0] * P[0][1]) + ")");
+s = s.replace(/[h]/g, "(" + Math.pow(P[0][1], 2) + ")");
+s = s.replace(/[i]/g, "(" + P[0][0] + ")");
+s = s.replace(/[j]/g, "(" + P[0][1] + ")");
 
-s = s.replace(/[k]/g, "(" + Math.pow(P[1][0], 2).toFixed(3) + ")");
-s = s.replace(/[l]/g, "(" + (P[1][0] * P[1][1]).toFixed(3) + ")");
-s = s.replace(/[m]/g, "(" + Math.pow(P[1][1], 2).toFixed(3) + ")");
-s = s.replace(/[n]/g, "(" + P[1][0].toFixed(3) + ")");
-s = s.replace(/[o]/g, "(" + P[1][1].toFixed(3) + ")");
+s = s.replace(/[k]/g, "(" + Math.pow(P[1][0], 2) + ")");
+s = s.replace(/[l]/g, "(" + (P[1][0] * P[1][1]) + ")");
+s = s.replace(/[m]/g, "(" + Math.pow(P[1][1], 2) + ")");
+s = s.replace(/[n]/g, "(" + P[1][0] + ")");
+s = s.replace(/[o]/g, "(" + P[1][1] + ")");
 
-s = s.replace(/[p]/g, "(" + Math.pow(P[2][0], 2).toFixed(3) + ")");
-s = s.replace(/[q]/g, "(" + (P[2][0] * P[2][1]).toFixed(3) + ")");
-s = s.replace(/[r]/g, "(" + Math.pow(P[2][1], 2).toFixed(3) + ")");
-s = s.replace(/[s]/g, "(" + P[2][0].toFixed(3) + ")");
-s = s.replace(/[t]/g, "(" + P[2][1].toFixed(3) + ")");
+s = s.replace(/[p]/g, "(" + Math.pow(P[2][0], 2) + ")");
+s = s.replace(/[q]/g, "(" + (P[2][0] * P[2][1]) + ")");
+s = s.replace(/[r]/g, "(" + Math.pow(P[2][1], 2) + ")");
+s = s.replace(/[s]/g, "(" + P[2][0] + ")");
+s = s.replace(/[t]/g, "(" + P[2][1] + ")");
 
-s = s.replace(/[u]/g, "(" + Math.pow(P[3][0], 2).toFixed(3) + ")");
-s = s.replace(/[v]/g, "(" + (P[3][0] * P[3][1]).toFixed(3) + ")");
-s = s.replace(/[w]/g, "(" + Math.pow(P[3][1], 2).toFixed(3) + ")");
-s = s.replace(/[x]/g, "(" + P[3][0].toFixed(3) + ")");
-s = s.replace(/[y]/g, "(" + P[3][1].toFixed(3) + ")");
+s = s.replace(/[u]/g, "(" + Math.pow(P[3][0], 2) + ")");
+s = s.replace(/[v]/g, "(" + (P[3][0] * P[3][1]) + ")");
+s = s.replace(/[w]/g, "(" + Math.pow(P[3][1], 2) + ")");
+s = s.replace(/[x]/g, "(" + P[3][0] + ")");
+s = s.replace(/[y]/g, "(" + P[3][1] + ")");
 
-s = s.replace(/[z]/g, "(" + Math.pow(P[4][0], 2).toFixed(3) + ")");
-s = s.replace(/[A]/g, "(" + (P[4][0] * P[4][1]).toFixed(3) + ")");
-s = s.replace(/[B]/g, "(" + Math.pow(P[4][1], 2).toFixed(3) + ")");
-s = s.replace(/[C]/g, "(" + P[4][0].toFixed(3) + ")");
-s = s.replace(/[D]/g, "(" + P[4][1].toFixed(3) + ")");
+s = s.replace(/[z]/g, "(" + Math.pow(P[4][0], 2) + ")");
+s = s.replace(/[A]/g, "(" + (P[4][0] * P[4][1]) + ")");
+s = s.replace(/[B]/g, "(" + Math.pow(P[4][1], 2) + ")");
+s = s.replace(/[C]/g, "(" + P[4][0] + ")");
+s = s.replace(/[D]/g, "(" + P[4][1] + ")");
 
 s = s.replace(/[a]/g, "(x^2)");
 s = s.replace(/[b]/g, "(x*y)");
@@ -80,7 +80,7 @@ s = s.replace(/[e]/g, "(y)");
 // exibir equação
 console.log(s);
 
-/* 
+/*
 // exemplo com pontos de valor fixo do exemplo 1
 s = s.replace(/[f]/g, "(" + 64.401 + ")");
 s = s.replace(/[g]/g, "(" + 66.688 + ")");
