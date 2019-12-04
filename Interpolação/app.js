@@ -17,7 +17,7 @@ const X = [1, 4, 6, 12];
 const Fx = [12, 5, 1, 0];
 
 // the value of x that you want to find the corresponding f(x)
-const value = 4.39;
+const value = 1;
 
 // creates a matrix M from the values of X -- aplies the Pn rule for each X's value
 const M = (
@@ -35,3 +35,8 @@ const fValue = (
 )();
 
 console.log(`Pn(${value}) = ${fValue}`);
+
+// generates a GeoGebra-like function for Pn
+const func = A.map((e, i) => i == 0 ? e[0] : `+(${e[0]})*(x^${i})`).reduce((y, z) => y + z);
+
+console.log(func);
